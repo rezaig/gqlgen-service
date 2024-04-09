@@ -1,0 +1,23 @@
+# directive @goField(
+# 	forceResolver: Boolean
+# 	name: String
+# 	omittable: Boolean
+# ) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+# extend type User @key(fields: "id") {
+#   id: ID! @external
+# }
+
+type User {
+	id: ID
+	name: String
+	foo: Foo
+}
+
+extend type Query {
+	users: [User!]!
+}
+
+type Foo {
+	id: ID
+}
